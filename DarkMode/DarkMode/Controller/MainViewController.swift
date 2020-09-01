@@ -8,23 +8,29 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
+    // MARK: - Outlets
+    
+    @IBOutlet private var viewToRoundedInFive: [UIView]!
+    @IBOutlet private var viewWithBorder: [UIView]!
+    @IBOutlet private weak var customTabBar: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        initUI()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func initUI() {
+        for view in viewToRoundedInFive {
+            view.layer.cornerRadius = 8
+        }
+        for view in viewWithBorder {
+            view.layer.cornerRadius = 15
+            view.layer.borderWidth = 2
+            view.layer.borderColor = UIColor(displayP3Red: 235/255, green: 235/255, blue: 235/255, alpha: 1).cgColor
+        }
+        customTabBar.layer.cornerRadius = 20
     }
-    */
-
 }
