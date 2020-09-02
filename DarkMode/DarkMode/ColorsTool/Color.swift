@@ -8,18 +8,25 @@
 
 import UIKit
 
+// Different choice of color interface
 enum ColorMode {
     case light, black
 }
 
+// MARK: - Color object
+// Tool for works with interface
 final class Color {
     
+    // MARK: - Properties
+    
+    // UIColor for each interface elements
     var forTheText: UIColor!
     var forTheView: UIColor!
     var forTheSubview: UIColor!
     var forTheBackground: UIColor!
     var forTheBackgroundButton: UIColor!
     
+    // According to color mode, change all color elements
     func changeUI(with colorMode: ColorMode) {
         switch colorMode {
         case .light:

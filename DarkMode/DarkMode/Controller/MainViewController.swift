@@ -11,7 +11,7 @@ import UIKit
 final class MainViewController: UIViewController {
 
     // MARK: - Property
-    
+    // The reference for color elements
     private var colorsReference = Color()
     
     // MARK: - Outlets
@@ -27,6 +27,7 @@ final class MainViewController: UIViewController {
     @IBOutlet private var subviewsColor: [UIView]!
     @IBOutlet private var backgroundViewColor: UIView!
     
+    // tool to recognize the changement of color mode
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
     
     // MARK: - Initializer
@@ -40,7 +41,10 @@ final class MainViewController: UIViewController {
     
     // MARK: - Action
     
+    // When user want change color mode
     @IBAction private func valueChanged() {
+        // According to the segment selected in button, change color mode in consequence
+        // - First of all, change all color in the reference
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             colorsReference.changeUI(with: .light)
@@ -49,16 +53,19 @@ final class MainViewController: UIViewController {
         default:
             colorsReference.changeUI(with: .light)
         }
-        initUI()
+        // - Secondly, take the color in reference and update UI within
+        assignColors()
     }
     
     // MARK: - Private functions
     
+    // First method used : to init UI
     private func initUI() {
         roundedView()
         assignColors()
     }
     
+    // Method to round all views which need it (+ add border sometimes)
     private func roundedView() {
         for view in viewToRoundedInFive {
             view.layer.cornerRadius = 8
@@ -71,6 +78,7 @@ final class MainViewController: UIViewController {
         customTabBar.layer.cornerRadius = 20
     }
     
+    // Method to assign color in user interface according to the usual color mode
     private func assignColors() {
         for text in textsCollection {
             text.textColor = colorsReference.forTheText
