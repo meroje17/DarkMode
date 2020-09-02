@@ -9,7 +9,7 @@
 import UIKit
 
 enum ColorMode {
-    case white, black
+    case light, black
 }
 
 final class Color {
@@ -22,7 +22,7 @@ final class Color {
     
     func changeUI(with colorMode: ColorMode) {
         switch colorMode {
-        case .white:
+        case .light:
             forTheText = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 1)
             forTheView = UIColor.white
             forTheSubview = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1)

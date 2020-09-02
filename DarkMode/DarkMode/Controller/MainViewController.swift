@@ -34,7 +34,7 @@ final class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        colorsReference.changeUI(with: .white)
+        colorsReference.changeUI(with: .light)
         initUI()
     }
     
@@ -43,11 +43,11 @@ final class MainViewController: UIViewController {
     @IBAction private func valueChanged() {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            colorsReference.changeUI(with: .white)
+            colorsReference.changeUI(with: .light)
         case 1:
             colorsReference.changeUI(with: .black)
         default:
-            colorsReference.changeUI(with: .white)
+            colorsReference.changeUI(with: .light)
         }
         initUI()
     }
